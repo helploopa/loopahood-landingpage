@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { ShoppingBag, Store, Heart, Instagram, Mail } from "lucide-react";
-import logo from "figma:asset/6132bd9114ac745345bd1348ea2e3beb28b04b23.png";
+import logo from "figma:asset/99d812d689a683464fc5371b1874904b6c4bdb07.png";
 
 export const Navbar = () => {
   return (
@@ -12,7 +12,6 @@ export const Navbar = () => {
     >
       <div className="flex items-center gap-3">
         <img src={logo} alt="Loopa Logo" className="h-10 w-auto object-contain" />
-        <span className="text-xl font-bold text-orange-900 tracking-tighter hidden sm:block">Loopa</span>
       </div>
       
       <button 
@@ -26,7 +25,7 @@ export const Navbar = () => {
 };
 
 export const Hero = () => {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -38,8 +37,7 @@ export const Hero = () => {
   return (
     <section 
       ref={containerRef} 
-      style={{ position: 'relative' }}
-      className="h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-center justify-center overflow-hidden"
     >
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img 
@@ -68,15 +66,6 @@ export const Hero = () => {
       </div>
 
       <motion.div style={{ opacity }} className="relative z-20 container mx-auto px-6 text-center text-white">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="mb-8"
-        >
-          <img src={logo} alt="Loopa" className="h-28 w-auto mx-auto drop-shadow-2xl" />
-        </motion.div>
-        
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -157,7 +146,6 @@ export const Footer = () => {
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex items-center gap-2">
           <img src={logo} alt="Loopa Logo" className="h-8 w-auto grayscale opacity-50" />
-          <span className="text-orange-900/30 font-bold tracking-tighter">LOOPA</span>
         </div>
         
         <div className="flex gap-8">
