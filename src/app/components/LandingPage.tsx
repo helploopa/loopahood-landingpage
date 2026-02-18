@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { ShoppingBag, Store, Heart, Instagram, Mail } from "lucide-react";
+import { ShoppingBag, Store, Heart, Instagram, Mail, Upload } from "lucide-react";
 import logo from "figma:asset/99d812d689a683464fc5371b1874904b6c4bdb07.png";
 
 export const Navbar = () => {
@@ -118,14 +118,33 @@ export const ComingSoon = () => {
               Enter your email to get early access.
             </p>
 
-            <form className="flex flex-col gap-4 p-2 bg-white rounded-3xl shadow-xl shadow-orange-200/30 border border-orange-100 sm:flex-row sm:rounded-full">
-              <input 
-                type="email" 
-                required
-                placeholder="email@example.com" 
-                className="flex-1 px-8 py-5 bg-transparent focus:outline-none text-orange-900 text-lg rounded-full"
-              />
-              <button className="px-10 py-5 bg-[#E67E22] text-white rounded-full text-lg font-bold hover:bg-[#D35400] transition-all shadow-lg active:scale-95">
+            <form className="flex flex-col gap-6 p-6 bg-white rounded-3xl shadow-xl shadow-orange-200/30 border border-orange-100 max-w-xl mx-auto">
+              <div className="flex flex-col gap-2 text-left">
+                <label className="text-sm font-semibold text-orange-900 ml-4">Email Address</label>
+                <input 
+                  type="email" 
+                  required
+                  placeholder="email@example.com" 
+                  className="w-full px-6 py-4 bg-orange-50/50 border border-orange-100 focus:border-[#E67E22] focus:ring-2 focus:ring-orange-200 focus:outline-none text-orange-900 text-lg rounded-2xl transition-all"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2 text-left">
+                <label className="text-sm font-semibold text-orange-900 ml-4">Share your neighborhood treasures (Optional)</label>
+                <div className="relative">
+                  <input 
+                    type="file" 
+                    accept="image/*"
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                  />
+                  <div className="w-full px-6 py-4 bg-orange-50/50 border border-dashed border-orange-200 rounded-2xl flex items-center gap-3 text-orange-800/60 hover:bg-orange-100/50 transition-colors">
+                    <Upload size={20} />
+                    <span className="text-sm">Upload a photo of what you make or grow</span>
+                  </div>
+                </div>
+              </div>
+
+              <button className="w-full py-5 bg-[#E67E22] text-white rounded-2xl text-lg font-bold hover:bg-[#D35400] transition-all shadow-lg active:scale-95 mt-2">
                 Join Waitlist
               </button>
             </form>
