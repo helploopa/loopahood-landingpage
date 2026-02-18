@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import { Navbar, Hero, ComingSoon, Footer } from "./components/LandingPage";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
         <ComingSoon />
       </main>
       <Footer />
+      <Toaster position="top-center" />
     </div>
   );
 }

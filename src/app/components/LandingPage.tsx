@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { toast } from "sonner";
 import { ShoppingBag, Store, Heart, Instagram, Mail, Upload } from "lucide-react";
 import logo from "../../assets/99d812d689a683464fc5371b1874904b6c4bdb07.png";
 
@@ -103,6 +104,41 @@ export const Hero = () => {
 };
 
 export const ComingSoon = () => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Simple email regex for validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://n8n.srv996951.hstgr.cloud/webhook/ad7630a4-6648-433a-ae74-293aa9f8b267", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        toast.success("You're on the list! We'll reach out soon.");
+        setEmail("");
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Network error. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="waitlist" className="py-32 bg-[#FDF5E6] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -118,21 +154,24 @@ export const ComingSoon = () => {
               Enter your email to get early access.
             </p>
 
-            <form className="flex flex-col gap-6 p-6 bg-white rounded-3xl shadow-xl shadow-orange-200/30 border border-orange-100 max-w-xl mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-6 bg-white rounded-3xl shadow-xl shadow-orange-200/30 border border-orange-100 max-w-xl mx-auto">
               <div className="flex flex-col gap-2 text-left">
                 <label className="text-sm font-semibold text-orange-900 ml-4">Email Address</label>
                 <input
                   type="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="email@example.com"
                   className="w-full px-6 py-4 bg-orange-50/50 border border-orange-100 focus:border-[#E67E22] focus:ring-2 focus:ring-orange-200 focus:outline-none text-orange-900 text-lg rounded-2xl transition-all"
                 />
               </div>
 
-
-
-              <button className="w-full py-5 bg-[#E67E22] text-white rounded-2xl text-lg font-bold hover:bg-[#D35400] transition-all shadow-lg active:scale-95 mt-2">
-                Join Waitlist
+              <button
+                disabled={isSubmitting}
+                className="w-full py-5 bg-[#E67E22] text-white rounded-2xl text-lg font-bold hover:bg-[#D35400] transition-all shadow-lg active:scale-95 mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Joining..." : "Join Waitlist"}
               </button>
             </form>
 
