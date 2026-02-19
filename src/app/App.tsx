@@ -1,5 +1,5 @@
 import { Toaster } from "sonner";
-import { Navbar, Hero, ComingSoon, Footer } from "./components/LandingPage";
+import { Navbar, Hero, SurveySection, Footer } from "./components/LandingPage";
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <Navbar />
       <main className="relative">
         <Hero />
-        <ComingSoon />
+        <SurveySection />
       </main>
       <Footer />
       <Toaster position="top-center" />
