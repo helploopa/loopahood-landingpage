@@ -196,34 +196,34 @@ export const SurveySection = () => {
   const questions = [
     {
       id: 1,
-      question: "Biggest challenge finding new local customers?",
+      question: "What is your biggest challenge in attracting new local customers?",
       options: [
-        "Hard to reach only my neighborhood",
-        "Lost in big global platforms",
-        "No easy way to offer free samples",
-        "Hard to turn buyers into repeats",
+        "Reaching customers specifically within my neighborhood",
+        "Getting noticed on large global platforms",
+        "Offering free samples to attract new buyers",
+        "Converting first-time buyers into repeat customers",
         "Other"
       ]
     },
     {
       id: 2,
-      question: "Biggest frustration sharing your maker story?",
+      question: "What is your biggest frustration when sharing your maker story?",
       options: [
-        "Social media reaches wrong people",
-        "Word-of-mouth too slow/inconsistent",
-        "Global sites hide my personal story",
-        "No dedicated place for story + products",
-        "No major issue"
+        "Social media reaches the wrong audience",
+        "Word-of-mouth is too slow or inconsistent",
+        "Large marketplaces hide or minimize my personal story",
+        "There’s no dedicated space to showcase both my story and products",
+        "I don’t experience major challenges"
       ]
     },
     {
       id: 3,
-      question: "Most overwhelming part of managing your business?",
+      question: "What feels most overwhelming about managing your business?",
       options: [
-        "Using too many separate tools/apps",
-        "Tracking limited inventory",
-        "Marketing locally without big costs",
-        "Handling payments & transactions",
+        "Using too many separate tools or apps",
+        "Managing limited inventory",
+        "Marketing locally without high costs",
+        "Handling payments and transactions",
         "None / Other"
       ]
     },
@@ -231,21 +231,21 @@ export const SurveySection = () => {
       id: 4,
       question: "What would help you collaborate with nearby makers?",
       options: [
-        "Easy way to find local makers",
-        "Tools to create joint bundles",
-        "Features for shared visibility/samples",
-        "No interest in collaborating",
+        "A simple way to discover local makers",
+        "Tools to create joint product bundles",
+        "Features that support shared visibility or sample offerings",
+        "I’m not interested in collaborating",
         "Other"
       ]
     },
     {
       id: 5,
-      question: "How important is buyer feedback for improving your products?",
+      question: "How important is buyer feedback in helping you improve your products?",
       options: [
-        "Very – want it tied to my listings",
-        "Somewhat – current feedback is messy",
-        "Not very – rely on repeats/chats",
-        "Hard to get consistent feedback",
+        "Very important — I’d like it directly connected to my listings",
+        "Somewhat important — current feedback is scattered",
+        "Not very important — I rely on repeat purchases and direct conversations",
+        "It’s difficult to gather consistent feedback",
         "Not applicable"
       ]
     }
